@@ -1,0 +1,21 @@
+:root {
+  --main-font-size: 14px;
+  --main-font-color: #000;
+  --second-font-color: #fff;
+  --font-family: "Roboto", sans-serif;
+  --main-border-radius: 3px;
+  --main-border-color: #ccc;
+  --main-title-h1: 20px;
+}
+@media (min-width: 576px) {
+  :root {
+  }
+}
+@media (min-width: 768px) {
+  :root {
+  }
+}
+@media (min-width: 1200px) {
+  :root {
+  }
+}
