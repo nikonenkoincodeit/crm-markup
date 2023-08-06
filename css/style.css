@@ -53,7 +53,7 @@ body footer {
   height: 100%;
   max-height: 100vh;
   display: grid;
-  grid-template-rows: 50px calc(100% - 150px) 100px;
+  grid-template-rows: 47px 50px calc(100% - 150px) auto;
 }
 
 .main {
@@ -62,8 +62,27 @@ body footer {
   justify-content: space-between;
 }
 
+.mob-header,
 .header {
   border-bottom: 1px solid var(--main-border-color);
+}
+
+.mob-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-icon-list {
+  display: flex;
+}
+
+.header-icon-list li {
+  padding: 8px;
+}
+
+.header-icon-list li {
+  border: 1px solid var(--main-border-color);
 }
 
 .main {
@@ -103,13 +122,20 @@ body h1 {
 
 .filter-box {
   display: flex;
+  flex-wrap: wrap;
   margin: 20px 0;
+  gap: 20px;
 }
 
 .filter-box > div {
-  width: 50%;
   gap: 20px;
 }
+
+.filter-box .d-flex,
+.filter-box .btn-box {
+  width: 100%;
+}
+
 .filter-box input {
   margin: 0;
   padding: 5px 10px;
@@ -130,6 +156,10 @@ button.outline {
   color: var(--primary);
 }
 
+.btn-box .btn-list:nth-child(2) {
+  margin-right: auto;
+}
+
 .btn-list button:not(:last-child) {
   margin-right: 5px;
 }
@@ -145,7 +175,7 @@ button.outline {
 
 .gallery {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   gap: 15px;
   padding: 15px;
 }
@@ -156,18 +186,22 @@ button.outline {
   border: 1px solid var(--main-border-color);
 }
 
-.footer {
-  padding: 20px 0;
+.footer-btn {
+  display: none;
 }
 
 .footer-info {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   padding: 12px 0;
 }
 
 .footer-list {
   display: flex;
+}
+
+.nav-page {
+  display: none;
 }
 
 .footer-list li + li {
@@ -188,4 +222,48 @@ button.outline {
   color: inherit;
   top: 0;
   left: calc(100% + 4px);
+}
+
+@media (min-width: 576px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 768px) {
+  .mob-header {
+    display: none;
+  }
+  .app {
+    grid-template-rows: 50px calc(100% - 150px) 100px;
+  }
+  .filter-box {
+    flex-wrap: nowrap;
+  }
+  .filter-box .d-flex {
+    width: 45%;
+  }
+
+  .filter-box .btn-box {
+    width: 55%;
+  }
+  .btn-box .btn-list:nth-child(2) {
+    margin-right: 0;
+  }
+  .gallery {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .nav-page {
+    display: flex;
+  }
+  .footer {
+    padding: 20px 0;
+  }
+  .footer-btn {
+    display: block;
+  }
+  .footer-info {
+    justify-content: space-between;
+  }
+}
+@media (min-width: 1200px) {
 }
