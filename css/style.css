@@ -274,6 +274,9 @@ nav[aria-label="breadcrumb"] ul li:not(:last-child) ::after {
   .footer-info {
     justify-content: space-between;
   }
+  .icon-menu {
+    display: none;
+  }
 }
 @media (min-width: 1200px) {
 }
