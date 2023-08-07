@@ -10,6 +10,10 @@ body,
   height: 100%;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 body div,
 body ul,
 body ul li,
@@ -65,6 +69,37 @@ ul li {
   max-height: 100vh;
   display: grid;
   grid-template-rows: 52px auto calc(100% - 150px) auto;
+}
+
+.app [role="button"] {
+  padding: 0;
+  background: transparent;
+  width: 20px;
+  height: 20px;
+  color: black;
+  border: none;
+  box-shadow: none;
+}
+
+.app [role="button"] svg {
+  position: absolute;
+}
+
+.app details[role="list"] summary + ul {
+  width: fit-content;
+  box-shadow: none;
+}
+
+details[role="list"] {
+  margin: 0;
+}
+
+details[role="list"].show-top {
+  margin-right: 10px;
+}
+
+details[role="list"].show-top [role="listbox"] {
+  bottom: 100%;
 }
 
 .mob-header .container,
@@ -193,7 +228,8 @@ button.outline {
   padding: var(--half-spacing);
 }
 
-.card {
+.card,
+kanban-colum {
   padding: var(--small-spacing);
   border-radius: var(--main-border-radius);
   border: 1px solid var(--main-border-color);
@@ -203,6 +239,7 @@ button.outline {
   display: none;
 }
 
+.footer-info.center,
 .footer-info {
   display: flex;
   justify-content: center;
@@ -234,6 +271,54 @@ nav[aria-label="breadcrumb"] ul li:not(:last-child) ::after {
   color: inherit;
 }
 
+.kanban {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(300px, 1fr));
+  height: 100%;
+  overflow-x: auto;
+  gap: var(--half-spacing);
+  padding: var(--half-spacing);
+}
+
+kanban-colum {
+  display: grid;
+  grid-template-rows: 40px calc(100% - 80px) 40px;
+  max-height: 100%;
+  overflow: hidden;
+}
+
+kanban-body {
+  padding: var(--half-spacing);
+  border: 1px solid var(--main-border-color);
+  overflow-y: auto;
+  display: block;
+}
+
+kanban-content {
+  display: block;
+  padding: var(--small-spacing);
+  border: 1px solid var(--main-border-color);
+  background: #fff;
+}
+
+kanban-content:not(:last-child) {
+  margin-bottom: var(--small-spacing);
+}
+
+kanban-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+kanban-footer nav {
+  margin-right: var(--small-spacing);
+}
+
+kanban-header h2 {
+  font-size: var(--main-title-h2);
+  margin-bottom: var(--double-spacing);
+}
 @media (min-width: 576px) {
   .gallery {
     grid-template-columns: repeat(2, 1fr);
