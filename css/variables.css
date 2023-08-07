@@ -6,6 +6,10 @@
   --main-border-radius: 3px;
   --main-border-color: #ccc;
   --main-title-h1: 20px;
+  --double-spacing: 20px;
+  --half-spacing: 15px;
+  --small-spacing: 10px;
+  --extra-small-spacing: 5px;
 }
 @media (min-width: 576px) {
   :root {

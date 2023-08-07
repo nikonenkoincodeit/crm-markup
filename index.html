@@ -59,11 +59,13 @@
         <header class="header">
 
             <div class="container">
-                <ul class="d-flex list-link">
-                    <li><a href="#">Dashboard</a></li>
-                    <li><a href="#">Level 1</a></li>
-                    <li><a href="#">Level 1-2</a></li>
-                </ul>
+                <nav aria-label="breadcrumb">
+                    <ul>
+                        <li><a href="#">Dashboard</a></li>
+                        <li><a href="#">Level 1</a></li>
+                        <li><a href="#">Level 1-2</a></li>
+                    </ul>
+                </nav>
             </div>
         </header>
         <main class="main container">
@@ -175,29 +177,30 @@
             </div>
             <div class="container">
                 <div class="footer-info">
-                    <div class="d-flex">
+                    <div class="footer-list">
                         <svg width="20" height="20">
                             <use href="./images/icons.svg#icon-arrow_drop_down"></use>
                         </svg>
-                        <ul class="footer-list">
-                            <li><a href="#">Actions</a></li>
-                            <li><a href="#">Create some new entity</a></li>
-                        </ul>
+                        <nav aria-label="breadcrumb">
+                            <ul>
+                                <li><a href="#">Actions</a></li>
+                                <li><a href="#">Create some new entity</a></li>
+                            </ul>
+                        </nav>
                     </div>
-                    <ul class="footer-list nav-page">
-                        <li>Show per page 100
-                            <svg width="20" height="20">
-                                <use href="./images/icons.svg#icon-arrow_drop_down"></use>
-                            </svg>
-                        </li>
-                        <li>1 <5> 999</li>
-                        <li>Shown 123</li>
-                        <li>Total: 1000</li>
-                    </ul>
+                    <nav aria-label="breadcrumb" class="nav-page">
+                        <ul>
+                            <li><a href="#">Show per page 100
+                                    <svg width="20" height="20">
+                                        <use href="./images/icons.svg#icon-arrow_drop_down"></use>
+                                    </svg>
+                                </a></li>
+                            <li><a href="#">1 <5> 999</a></li>
+                            <li><a href="#">Shown 123</a></li>
+                            <li><a href="#">Total: 1000</a></li>
+                        </ul>
+                    </nav>
                 </div>
-
-
-
             </div>
         </footer>
     </div>
