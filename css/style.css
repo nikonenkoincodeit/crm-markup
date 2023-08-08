@@ -401,10 +401,15 @@ left-sidebar {
   justify-content: space-between;
   flex-direction: column;
   top: 0;
-  left: 0;
+  left: -285px;
   background: #fff;
   height: 100vh;
   border: 1px solid var(--main-border-color);
+  transition: left 1s ease;
+}
+
+left-sidebar.show {
+  left: 0;
 }
 
 left-sidebar aside {
@@ -430,6 +435,7 @@ aside li a {
   border-radius: 50%;
   top: 50px;
   right: -15px;
+  z-index: 100;
   border: 1px solid var(--main-border-color);
   cursor: pointer;
 }
@@ -442,8 +448,8 @@ left-sidebar footer {
 }
 
 .nested-menu {
-  padding-left: 20px;
-  max-height: 150px;
+  padding-left: var(--double-spacing);
+  max-height: 200px;
   height: 0;
   overflow: hidden;
   opacity: 0;
