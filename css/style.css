@@ -319,6 +319,142 @@ kanban-header h2 {
   font-size: var(--main-title-h2);
   margin-bottom: var(--double-spacing);
 }
+
+.main-body {
+  position: relative;
+}
+
+.fixed-cell {
+  border: var(--border-width) solid var(--table-border-color);
+  position: sticky;
+  top: 0;
+  right: 0;
+  z-index: 100;
+  border: 1px solid #fff;
+  background: #fff;
+}
+
+td,
+th {
+  font-size: var(--main-font-size);
+  border: var(--border-width) solid var(--table-border-color);
+}
+
+.table-box button {
+  width: auto;
+  padding: var(--extra-small-spacing) var(--small-spacing);
+  margin: 0;
+}
+
+.cell-setting {
+  width: fit-content;
+  position: sticky;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  z-index: 101;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  padding: var(--small-spacing);
+  background: #fff;
+}
+
+.cell-setting button {
+  padding: var(--extra-small-spacing) var(--small-spacing);
+  display: block;
+  margin: 0;
+}
+
+.cell-setting.pos-abs {
+  position: absolute;
+}
+
+.cell-setting.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.num-sel {
+  display: inline-block;
+  padding: 0 var(--extra-small-spacing);
+}
+
+.grip {
+  width: 20px;
+  height: 20px;
+  margin-top: 10px;
+  margin-left: -5px;
+}
+.table-box .JColResizer > tbody > tr > td,
+.table-box .JColResizer > tbody > tr > th {
+  min-width: 150px;
+  padding-left: var(--spacing) !important;
+  padding-right: var(--spacing) !important;
+}
+
+left-sidebar {
+  width: 100%;
+  max-width: 300px;
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  top: 0;
+  left: 0;
+  background: #fff;
+  height: 100vh;
+  border: 1px solid var(--main-border-color);
+}
+
+left-sidebar aside {
+  padding: var(--half-spacing);
+}
+aside nav li:not(:last-child) {
+  margin: 0;
+}
+aside li a {
+  display: flex;
+  justify-content: space-between;
+  color: var(--color);
+}
+
+.toggle-sidebar {
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  top: 50px;
+  right: -15px;
+  border: 1px solid var(--main-border-color);
+  cursor: pointer;
+}
+
+left-sidebar footer {
+  display: flex;
+  justify-content: center;
+  padding: var(--half-spacing);
+  border-top: 1px solid var(--main-border-color);
+}
+
+.nested-menu {
+  padding-left: 20px;
+  max-height: 150px;
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: height 0.5s;
+}
+
+.nested-menu.show {
+  opacity: 1;
+  height: auto;
+}
+
 @media (min-width: 576px) {
   .gallery {
     grid-template-columns: repeat(2, 1fr);
