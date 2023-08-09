@@ -96,7 +96,7 @@
                             </svg>
                         </button>
                         <input type="search" id="search" name="search" class="search" placeholder="Search">
-                        <button type="button" class="outline btn-el">
+                        <button type="button" class="outline btn-el js-btn-filter">
                             <svg width="30" height="30">
                                 <use href="./images/icons.svg#icon-filter"></use>
                             </svg>
@@ -231,7 +231,6 @@
                                         </svg>
                                     </div>
                                 </td>
-
                             </tr>
                             <tr>
                                 <th scope="row" width="50">
@@ -295,6 +294,67 @@
                 </div>
             </div>
         </footer>
+        <div class="table-management">
+            <ul role="listbox">
+                <li><a>View</a></li>
+                <li><a>Edit</a></li>
+                <li><a>Delete</a></li>
+            </ul>
+        </div>
+
+        <search-block>
+            <header>
+                <space-between>
+                    <p>Search</p>
+                    <a href="#">Advanced search</a>
+                </space-between>
+
+            </header>
+            <main>
+                <form>
+                    <label for="f-search">Search query:
+                        <input type="text" id="f-search" name="search">
+                    </label>
+                    <label for="select">
+                        In:
+                        <select id="select">
+                            <option value="" disabled="disabled" selected="selected">Select</option>
+                            <option>Option</option>
+                            <option>Another option</option>
+                            <option>Something else here</option>
+                        </select>
+                    </label>
+                </form>
+                <space-between>
+                    <button type="button">
+                        <svg width="20" height="20">
+                            <use href="./images/icons.svg#icon-arrow_drop_down"></use>
+                        </svg>
+                        Add filter</button>
+                    <button type="button">Search</button>
+                </space-between>
+            </main>
+            <box-filter>
+                <div class="card">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque sunt possimus laboriosam eaque
+                    quisquam modi ipsum repellendus officia est minus ducimus aliquid non aliquam quis, placeat
+                    aspernatur tempora libero. Molestiae.
+                </div>
+                <div class="card">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque sunt possimus laboriosam eaque
+                    quisquam modi ipsum repellendus officia est minus ducimus aliquid non aliquam quis, placeat
+                    aspernatur tempora libero. Molestiae.
+                </div>
+            </box-filter>
+            <footer>
+                <space-between>
+                    <button type="button" class="outline">Reset filter</button>
+                    <button type="button">Search</button>
+                </space-between>
+                <button type="button" class="outline collapse-btn js-collapse-btn">Collapse</button>
+            </footer>
+        </search-block>
+
     </div>
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"
         integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>

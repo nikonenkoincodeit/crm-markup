@@ -42,6 +42,8 @@ $(document).ready(function () {
     }
   });
 
+  const colNum = $("table thead tr th").length;
+
   $("table").colResizable({
     liveDrag: true,
     gripInnerHtml: `<div class='grip'>
@@ -51,6 +53,42 @@ $(document).ready(function () {
     </div>`,
     draggingClass: "dragging",
     minWidth: 100,
-    disabledColumns: [0, 5],
+    disabledColumns: [0, colNum - 2],
+  });
+
+  const tableManagement = $(".table-management");
+
+  const tableManagementWidth = tableManagement.width();
+
+  let showTableManagement = false;
+
+  $(".app").on("click", (e) => {
+    if (e.target.closest(".fixed-cell")) return;
+    if (!showTableManagement) return;
+
+    tableManagement[0].style.cssText = ``;
+    showTableManagement = false;
+  });
+
+  $(".fixed-cell").on("click", (e) => {
+    const { x, y } = e.target.getBoundingClientRect();
+    const left = x - tableManagementWidth;
+    tableManagement[0].style.cssText = `left: ${left}px; top: ${y}px; display: block`;
+    setTimeout(() => {
+      showTableManagement = true;
+    }, 0);
+  });
+
+  const btnFilter = $(".js-btn-filter");
+  const searchBlock = $("search-block");
+  const collapseBtn = $(".js-collapse-btn");
+
+  btnFilter.on("click", () => {
+    console.log(123);
+    searchBlock.addClass("show");
+  });
+
+  collapseBtn.on("click", () => {
+    searchBlock.removeClass("show");
   });
 });

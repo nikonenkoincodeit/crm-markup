@@ -9,6 +9,7 @@ $(document).ready(function () {
 
   const leftSidebar = $("left-sidebar");
   const rightSidebar = $("right-sidebar");
+  const iconMenu = $(".icon-menu");
   const toggleLeftSidebar = leftSidebar.find(".toggle-sidebar");
   const toggleRightSidebar = rightSidebar.find(".toggle-sidebar");
 
@@ -19,6 +20,10 @@ $(document).ready(function () {
     $(e.target).hasClass("toggle-sidebar") || openSidebar;
 
   toggleLeftSidebar.on("click", () => {
+    openLeftSidebar = leftSidebar[0].classList.toggle("show");
+  });
+
+  iconMenu.on("click", () => {
     openLeftSidebar = leftSidebar[0].classList.toggle("show");
   });
 
