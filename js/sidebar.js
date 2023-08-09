@@ -8,24 +8,41 @@ $(document).ready(function () {
   });
 
   const leftSidebar = $("left-sidebar");
-  const toggleLeftSidebar = $(".toggle-sidebar");
+  const rightSidebar = $("right-sidebar");
+  const toggleLeftSidebar = leftSidebar.find(".toggle-sidebar");
+  const toggleRightSidebar = rightSidebar.find(".toggle-sidebar");
+
   let openLeftSidebar = false;
+  let openRightSidebar = false;
 
-  const sidebarControl = (e) =>
-    $(e.target).hasClass("toggle-sidebar") || openLeftSidebar;
+  const sidebarLeftControl = (e, openSidebar) =>
+    $(e.target).hasClass("toggle-sidebar") || openSidebar;
 
-  toggleLeftSidebar.on("click", onToggleLeftSidebar);
+  toggleLeftSidebar.on("click", () => {
+    openLeftSidebar = leftSidebar[0].classList.toggle("show");
+  });
+
+  toggleRightSidebar.on("click", () => {
+    openRightSidebar = rightSidebar[0].classList.toggle("show");
+  });
+
   leftSidebar.on("mouseenter", (e) => {
-    if (sidebarControl(e)) return;
+    if (sidebarLeftControl(e, openLeftSidebar)) return;
     leftSidebar.addClass("show");
   });
 
   leftSidebar.on("mouseleave", (e) => {
-    if (sidebarControl(e)) return;
+    if (sidebarLeftControl(e, openLeftSidebar)) return;
     leftSidebar.removeClass("show");
   });
 
-  function onToggleLeftSidebar() {
-    openLeftSidebar = leftSidebar[0].classList.toggle("show");
-  }
+  rightSidebar.on("mouseenter", (e) => {
+    if (sidebarLeftControl(e, openRightSidebar)) return;
+    rightSidebar.addClass("show");
+  });
+
+  rightSidebar.on("mouseleave", (e) => {
+    if (sidebarLeftControl(e, openRightSidebar)) return;
+    rightSidebar.removeClass("show");
+  });
 });

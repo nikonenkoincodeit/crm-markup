@@ -11,6 +11,7 @@
   --half-spacing: 15px;
   --small-spacing: 10px;
   --extra-small-spacing: 5px;
+  --sidebar-footer-height: 50px;
 }
 @media (min-width: 576px) {
   :root {
