@@ -42,17 +42,20 @@ $(document).ready(function () {
     }
   });
 
+  const tableBox = $(".table-box");
+  const w = tableBox.width();
+
+  $("table").width(w);
   const colNum = $("table thead tr th").length;
 
   $("table").colResizable({
     liveDrag: true,
     gripInnerHtml: `<div class='grip'>
-    <svg width="15" height="15">
-    <use href="./images/icons.svg#icon-sync"></use>
-</svg>
-    </div>`,
+      <svg width="15" height="15">
+      <use href="./images/icons.svg#icon-sync"></use>
+  </svg>
+      </div>`,
     draggingClass: "dragging",
-    minWidth: 100,
     disabledColumns: [0, colNum - 2],
   });
 
@@ -84,7 +87,6 @@ $(document).ready(function () {
   const collapseBtn = $(".js-collapse-btn");
 
   btnFilter.on("click", () => {
-    console.log(123);
     searchBlock.addClass("show");
   });
 

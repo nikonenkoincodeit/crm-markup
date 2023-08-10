@@ -6,12 +6,17 @@ $(document).ready(function () {
     if (!menu.length) return;
     menu.toggleClass("show");
   });
-
+  //sidebar-content
   const leftSidebar = $("left-sidebar");
   const rightSidebar = $("right-sidebar");
+
   const iconMenu = $(".icon-menu");
+  const app = $(".app");
   const toggleLeftSidebar = leftSidebar.find(".toggle-sidebar");
   const toggleRightSidebar = rightSidebar.find(".toggle-sidebar");
+
+  const sidebarLeftCon = leftSidebar.find(".sidebar-content");
+  const sidebarRightCon = rightSidebar.find(".sidebar-content");
 
   let openLeftSidebar = false;
   let openRightSidebar = false;
@@ -20,6 +25,7 @@ $(document).ready(function () {
     $(e.target).hasClass("toggle-sidebar") || openSidebar;
 
   toggleLeftSidebar.on("click", () => {
+    console.log("click");
     openLeftSidebar = leftSidebar[0].classList.toggle("show");
   });
 
@@ -28,26 +34,53 @@ $(document).ready(function () {
   });
 
   toggleRightSidebar.on("click", () => {
+    console.log("click 2");
     openRightSidebar = rightSidebar[0].classList.toggle("show");
   });
 
-  leftSidebar.on("mouseenter", (e) => {
-    if (sidebarLeftControl(e, openLeftSidebar)) return;
-    leftSidebar.addClass("show");
-  });
+  if ($(window).width() > 700) {
+    let flagL = null;
+    sidebarLeftCon.on("mouseenter", (e) => {
+      if (sidebarLeftControl(e, openLeftSidebar) || flagL) return;
+      flagL = true;
+      leftSidebar.addClass("hover-over");
+      leftSidebar.css("position", "fixed");
+      app.css("margin-left", "30px");
+    });
 
-  leftSidebar.on("mouseleave", (e) => {
-    if (sidebarLeftControl(e, openLeftSidebar)) return;
-    leftSidebar.removeClass("show");
-  });
+    sidebarLeftCon.on("mouseleave", (e) => {
+      if (sidebarLeftControl(e)) return;
+      leftSidebar.removeClass("hover-over");
+      setTimeout(() => {
+        leftSidebar.css("position", "relative");
+        app.css("margin-left", "0");
+        flagL = false;
+      }, 1100);
+    });
 
-  rightSidebar.on("mouseenter", (e) => {
-    if (sidebarLeftControl(e, openRightSidebar)) return;
-    rightSidebar.addClass("show");
-  });
+    let flagR = null;
+    sidebarRightCon.on("mouseenter", (e) => {
+      if (sidebarLeftControl(e, openRightSidebar) || flagR) return;
+      flagR = true;
+      rightSidebar.addClass("hover-over");
+      rightSidebar.css("position", "fixed");
+      app.css("margin-right", "30px");
+    });
 
-  rightSidebar.on("mouseleave", (e) => {
-    if (sidebarLeftControl(e, openRightSidebar)) return;
-    rightSidebar.removeClass("show");
+    sidebarRightCon.on("mouseleave", (e) => {
+      if (sidebarLeftControl(e, openRightSidebar)) return;
+      rightSidebar.removeClass("hover-over");
+      setTimeout(() => {
+        flagR = false;
+        rightSidebar.css("position", "relative");
+        app.css("margin-right", "0");
+      }, 1100);
+    });
+  }
+  const footerBtn = $(".footer-btn");
+
+  footerBtn.on("click", () => {
+    rightSidebar.toggleClass("hide-element");
+    leftSidebar.toggleClass("hide-element");
   });
 });
