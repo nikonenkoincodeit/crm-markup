@@ -78,10 +78,12 @@ $(document).ready(function () {
     });
   }
   const footerBtn = $(".footer-btn");
+  const conFluid = $(".container-fluid");
 
   footerBtn.on("click", () => {
     rightSidebar.toggleClass("hide-element");
     leftSidebar.toggleClass("hide-element");
+    conFluid.toggleClass("fluid");
   });
 
   // const resizeSidebar = $(".resize-sidebar");
