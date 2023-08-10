@@ -467,6 +467,7 @@ aside li a {
   color: var(--color);
 }
 
+.resize-sidebar,
 .toggle-sidebar {
   position: absolute;
   height: 30px;
@@ -482,14 +483,20 @@ aside li a {
   cursor: pointer;
 }
 
+.resize-sidebar {
+  top: calc(100% - 100px);
+}
+
 .toggle-sidebar svg {
   position: relative;
 }
 
+left-sidebar .resize-sidebar,
 left-sidebar .toggle-sidebar {
   right: -15px;
 }
 
+right-sidebar .resize-sidebar,
 right-sidebar .toggle-sidebar {
   left: -15px;
 }

@@ -83,4 +83,27 @@ $(document).ready(function () {
     rightSidebar.toggleClass("hide-element");
     leftSidebar.toggleClass("hide-element");
   });
+
+  // const resizeSidebar = $(".resize-sidebar");
+
+  // let f = false;
+  // resizeSidebar.on("mousedown", (e) => (f = true));
+
+  // resizeSidebar.on("mousemove", (e) => {
+  //   const sidebar = e.currentTarget.dataset.sidebar;
+
+  //   if (f) {
+  //     flagL = true;
+  //     const el = $(sidebar + "-sidebar");
+  //     el.width(300 - e.pageX);
+  //     // let res = 270 - e.pageX;
+  //     // if (res < 0) res = 0;
+  //     // el.css("margin-left", res + "px");
+  //   }
+  //   // f = false;
+  // });
+
+  // resizeSidebar.on("mouseup", (e) => (f = false));
+
+  // $("left-sidebar").resizable();
 });
