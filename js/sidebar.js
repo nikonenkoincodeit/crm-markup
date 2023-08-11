@@ -6,11 +6,12 @@ $(document).ready(function () {
     if (!menu.length) return;
     menu.toggleClass("show");
   });
-  //sidebar-content
+
   const leftSidebar = $("left-sidebar");
   const rightSidebar = $("right-sidebar");
 
   const iconMenu = $(".icon-menu");
+  const iconMenuRight = $(".icon-menu-right");
   const app = $(".app");
   const toggleLeftSidebar = leftSidebar.find(".toggle-sidebar");
   const toggleRightSidebar = rightSidebar.find(".toggle-sidebar");
@@ -26,16 +27,19 @@ $(document).ready(function () {
 
   toggleLeftSidebar.on("click", () => {
     console.log("click");
-    openLeftSidebar = leftSidebar[0].classList.toggle("show");
+    openLeftSidebar = leftSidebar.toggleClass("show");
   });
 
   iconMenu.on("click", () => {
-    openLeftSidebar = leftSidebar[0].classList.toggle("show");
+    openLeftSidebar = leftSidebar.toggleClass("show");
+  });
+
+  iconMenuRight.on("click", () => {
+    openRightSidebar = rightSidebar.toggleClass("show");
   });
 
   toggleRightSidebar.on("click", () => {
-    console.log("click 2");
-    openRightSidebar = rightSidebar[0].classList.toggle("show");
+    openRightSidebar = rightSidebar.toggleClass("show");
   });
 
   if ($(window).width() > 700) {
