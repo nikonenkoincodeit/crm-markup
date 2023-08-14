@@ -90,26 +90,36 @@ $(document).ready(function () {
     conFluid.toggleClass("fluid");
   });
 
-  // const resizeSidebar = $(".resize-sidebar");
+  const resizeSidebar = $(".resize-sidebar");
 
-  // let f = false;
-  // resizeSidebar.on("mousedown", (e) => (f = true));
+  let f = false;
+  let sidebar = "";
+  resizeSidebar.on("mousedown", (e) => {
+    sidebar = e.currentTarget.dataset.sidebar;
 
-  // resizeSidebar.on("mousemove", (e) => {
-  //   const sidebar = e.currentTarget.dataset.sidebar;
+    f = true;
+  });
 
-  //   if (f) {
-  //     flagL = true;
-  //     const el = $(sidebar + "-sidebar");
-  //     el.width(300 - e.pageX);
-  //     // let res = 270 - e.pageX;
-  //     // if (res < 0) res = 0;
-  //     // el.css("margin-left", res + "px");
-  //   }
-  //   // f = false;
-  // });
+  window.addEventListener("mousemove", (e) => {
+    if (f) {
+      const el = $(sidebar + "-sidebar");
+      const { x } = e.target.getBoundingClientRect();
+      const { width } = el[0].getBoundingClientRect();
 
-  // resizeSidebar.on("mouseup", (e) => (f = false));
+      console.log(e.pageX);
+      el.width(e.pageX);
+      // let res = 270 - e.pageX;
+      // if (res < 0) res = 0;
+      // el.css("margin-left", res + "px");
+    }
+    // f = false;
+  });
+
+  window.addEventListener("mouseup", stopResize);
+  function stopResize(e) {
+    f = false;
+    console.log("f ", f);
+  }
 
   // $("left-sidebar").resizable();
 });

@@ -453,15 +453,14 @@ section h2 {
 }
 
 .checkbox-cell {
-  width: 50px;
-  max-width: 50px;
-  min-width: 50px;
+  width: 60px;
+  max-width: 60px;
+  min-width: 60px;
 }
 
 right-sidebar,
 left-sidebar {
-  width: 100%;
-  max-width: 300px;
+  width: 300px;
   z-index: 200;
   position: relative;
   display: grid;
@@ -480,7 +479,7 @@ left-sidebar {
 }
 right-sidebar {
   margin-right: -270px;
-  right: -1px;
+  right: 0;
 }
 
 left-sidebar.show {
@@ -493,7 +492,7 @@ right-sidebar.show {
 
 left-sidebar.hover-over {
   margin-left: -1px;
-  left: -1px;
+  left: 0;
 }
 
 right-sidebar.hover-over {
