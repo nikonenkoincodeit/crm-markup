@@ -17,7 +17,7 @@
 
 <body>
     <div class="wrapper">
-        <left-sidebar class="">
+        <left-sidebar>
             <div class="toggle-sidebar">
                 <svg width="20" height="20">
                     <use href="./images/icons.svg#icon-sync"></use>
@@ -109,6 +109,9 @@
                                             </svg>
                                             Link
                                         </span>
+                                        <svg width="30" height="30">
+                                            <use href="./images/icons.svg#icon-keyboard_arrow_left"></use>
+                                        </svg>
                                     </a>
                                 </li>
                             </ul>
@@ -116,15 +119,17 @@
                     </aside>
                 </main>
                 <footer>
-                    <div>
-                        <a href="#">link</a>
-                        <a href="#">link</a>
-                    </div>
+                    <button type="button" class="outline coll-btn">
+                        collapse
+                        <svg width="40" height="40">
+                            <use href="./images/icons.svg#icon-arrow_left"></use>
+                        </svg>
+                    </button>
                 </footer>
             </div>
         </left-sidebar>
 
-        <div class="app auto-height">
+        <div class="app ">
             <div class="mob-header">
                 <div class="container-fluid">
                     <div>
@@ -135,6 +140,24 @@
                             Logo
                         </a>
                     </div>
+                    <nav class="site-nav">
+                        <ul class="site-nav-list">
+                            <li><a href="#">Link 1</a></li>
+                            <li><a href="#">Link 2</a></li>
+                            <li><a href="#">Link 3</a></li>
+                            <li><a href="#">Link 4</a></li>
+                            <li><a href="#">Link 5</a></li>
+                            <li><a href="#">Link 6</a></li>
+                            <li><a href="#">Link 7</a></li>
+                            <li><a href="#">Link 8</a></li>
+                            <li class="more hidden">
+                                <a href="#">Mehr +</a>
+                                <ul></ul>
+                            </li>
+                        </ul>
+                    </nav>
+
+
                     <ul class="header-icon-list">
                         <li>
                             <svg width="30" height="30">
@@ -318,11 +341,22 @@
                                 nemo. Iure animi architecto qui veniam non at explicabo nulla optio laudantium id.
                                 Placeat.</p>
                         </article>
-                        <article class="col-2">
-                            <h3>Lorem ipsum dolor sit amet.</h3>
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis blanditiis rerum
-                                nemo. Iure animi architecto qui veniam non at explicabo nulla optio laudantium id.
-                                Placeat.</p>
+                        <article class="col-2 d-flex">
+                            <div class="col-1-2">
+                                <h3>Lorem ipsum dolor sit amet.</h3>
+                                <input type="text">
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis blanditiis rerum
+                                    nemo. Iure animi architecto qui veniam non at explicabo nulla optio laudantium id.
+                                    Placeat.</p>
+                            </div>
+                            <div class="col-1-2">
+                                <h3>Lorem ipsum dolor sit amet.</h3>
+                                <input type="text">
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis blanditiis rerum
+                                    nemo. Iure animi architecto qui veniam non at explicabo nulla optio laudantium id.
+                                    Placeat.</p>
+                            </div>
+
                         </article>
                         <article class="col-1">
                             <h3>Lorem ipsum dolor sit amet.</h3>
@@ -337,6 +371,18 @@
                                 Placeat.</p>
                         </article>
                         <article class="col-1">
+                            <h3>Lorem ipsum dolor sit amet.</h3>
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis blanditiis rerum
+                                nemo. Iure animi architecto qui veniam non at explicabo nulla optio laudantium id.
+                                Placeat.</p>
+                        </article>
+                        <article class="col-1-2">
+                            <h3>Lorem ipsum dolor sit amet.</h3>
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis blanditiis rerum
+                                nemo. Iure animi architecto qui veniam non at explicabo nulla optio laudantium id.
+                                Placeat.</p>
+                        </article>
+                        <article class="col-1-2">
                             <h3>Lorem ipsum dolor sit amet.</h3>
                             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis blanditiis rerum
                                 nemo. Iure animi architecto qui veniam non at explicabo nulla optio laudantium id.
@@ -603,9 +649,6 @@
                 </section>
             </main>
             <footer class="footer">
-                <div class="container-fluid ">
-                    <button type="button" class="btn-el footer-btn">Load more</button>
-                </div>
                 <div class="container-fluid">
                     <div class="footer-info">
                         <div class="footer-list">
@@ -704,7 +747,7 @@
 
         </div>
 
-        <right-sidebar class="">
+        <right-sidebar>
             <div class="toggle-sidebar">
                 <svg width="20" height="20">
                     <use href="./images/icons.svg#icon-sync"></use>
@@ -737,10 +780,12 @@
                         eveniet aperiam quaerat officia quisquam.</div>
                 </main>
                 <footer>
-                    <div>
-                        <a href="#">link</a>
-                        <a href="#">link</a>
-                    </div>
+                    <button type="button" class="outline coll-btn">
+                        collapse
+                        <svg width="40" height="40">
+                            <use href="./images/icons.svg#icon-arrow_right"></use>
+                        </svg>
+                    </button>
                 </footer>
             </div>
         </right-sidebar>
@@ -750,6 +795,7 @@
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"
         integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
     <script src="./js/colResizable-1.6.min.js"></script>
+    <script src="./js/header-menu.js"></script>
     <script src="./js/sidebar.js"></script>
     <script src="./js/table.js"></script>
 </body>

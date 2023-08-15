@@ -10,77 +10,56 @@ $(document).ready(function () {
   const leftSidebar = $("left-sidebar");
   const rightSidebar = $("right-sidebar");
 
-  const iconMenu = $(".icon-menu");
-  const iconMenuRight = $(".icon-menu-right");
+  // const iconMenu = $(".icon-menu");
+  // const iconMenuRight = $(".icon-menu-right");
   const app = $(".app");
-  const toggleLeftSidebar = leftSidebar.find(".toggle-sidebar");
-  const toggleRightSidebar = rightSidebar.find(".toggle-sidebar");
 
-  const sidebarLeftCon = leftSidebar.find(".sidebar-content");
-  const sidebarRightCon = rightSidebar.find(".sidebar-content");
+  // const toggleLeftSidebar = leftSidebar.find(".toggle-sidebar");
+  const btnToggle = $(".toggle-sidebar");
 
-  let openLeftSidebar = false;
-  let openRightSidebar = false;
+  const getParentInfo = (el) => {
+    const parentEl = el.parent();
+    const pos = parentEl[0].tagName.toLowerCase().split("-")[0];
+    const width = parentEl.attr("data-width") || 300;
+    return { parentEl, pos, width };
+  };
 
-  const sidebarLeftControl = (e, openSidebar) =>
-    $(e.target).hasClass("toggle-sidebar") || openSidebar;
-
-  toggleLeftSidebar.on("click", () => {
-    console.log("click");
-    openLeftSidebar = leftSidebar.toggleClass("show");
-  });
-
-  iconMenu.on("click", () => {
-    openLeftSidebar = leftSidebar.toggleClass("show");
-  });
-
-  iconMenuRight.on("click", () => {
-    openRightSidebar = rightSidebar.toggleClass("show");
-  });
-
-  toggleRightSidebar.on("click", () => {
-    openRightSidebar = rightSidebar.toggleClass("show");
-  });
-
-  if ($(window).width() > 700) {
-    let flagL = null;
-    sidebarLeftCon.on("mouseenter", (e) => {
-      if (sidebarLeftControl(e, openLeftSidebar) || flagL) return;
-      flagL = true;
-      leftSidebar.addClass("hover-over");
-      leftSidebar.css("position", "fixed");
-      app.css("margin-left", "30px");
-    });
-
-    sidebarLeftCon.on("mouseleave", (e) => {
-      if (sidebarLeftControl(e)) return;
-      leftSidebar.removeClass("hover-over");
-      setTimeout(() => {
-        leftSidebar.css("position", "relative");
-        app.css("margin-left", "0");
-        flagL = false;
-      }, 1100);
-    });
-
-    let flagR = null;
-    sidebarRightCon.on("mouseenter", (e) => {
-      if (sidebarLeftControl(e, openRightSidebar) || flagR) return;
-      flagR = true;
-      rightSidebar.addClass("hover-over");
-      rightSidebar.css("position", "fixed");
-      app.css("margin-right", "30px");
-    });
-
-    sidebarRightCon.on("mouseleave", (e) => {
-      if (sidebarLeftControl(e, openRightSidebar)) return;
-      rightSidebar.removeClass("hover-over");
-      setTimeout(() => {
-        flagR = false;
-        rightSidebar.css("position", "relative");
-        app.css("margin-right", "0");
-      }, 1100);
-    });
+  function toggleSidebar(parentEl, pos, width, method = "toggle") {
+    const bool = parentEl[0].classList[method]("show");
+    const offset = bool ? 0 : "-" + (width - 30) + "px";
+    parentEl.css("margin-" + pos, offset);
   }
+
+  btnToggle.on("click", function () {
+    const { parentEl, pos, width } = getParentInfo($(this));
+    toggleSidebar(parentEl, pos, width);
+  });
+
+  let idTimeout = null;
+
+  $(".sidebar-content").hover(
+    function () {
+      const { parentEl, pos } = getParentInfo($(this));
+      if (parentEl.hasClass("show")) return;
+      app.css("margin-" + pos, "30px");
+      parentEl.addClass("hover p-fixed");
+      parentEl.css("margin-" + pos, -1 + "px");
+      clearTimeout(idTimeout);
+    },
+    function () {
+      const { parentEl, pos, width } = getParentInfo($(this));
+      if (parentEl.hasClass("show")) return;
+      parentEl.removeClass("hover");
+      console.log("width ", width);
+      parentEl.css("margin-" + pos, "-" + (width - 30) + "px");
+      idTimeout = setTimeout(function () {
+        parentEl.removeClass("p-fixed");
+
+        app.css("margin-" + pos, 0);
+      }, 1000);
+    }
+  );
+
   const footerBtn = $(".footer-btn");
   const conFluid = $(".container-fluid");
 
@@ -92,34 +71,40 @@ $(document).ready(function () {
 
   const resizeSidebar = $(".resize-sidebar");
 
-  let f = false;
+  let dragAndDrop = false;
   let sidebar = "";
   resizeSidebar.on("mousedown", (e) => {
     sidebar = e.currentTarget.dataset.sidebar;
 
-    f = true;
+    dragAndDrop = true;
   });
 
   window.addEventListener("mousemove", (e) => {
-    if (f) {
-      const el = $(sidebar + "-sidebar");
-      const { x } = e.target.getBoundingClientRect();
-      const { width } = el[0].getBoundingClientRect();
-
-      console.log(e.pageX);
-      el.width(e.pageX);
-      // let res = 270 - e.pageX;
-      // if (res < 0) res = 0;
-      // el.css("margin-left", res + "px");
+    if (!dragAndDrop) return;
+    const el = $(sidebar + "-sidebar");
+    let width = 0;
+    if (sidebar === "left") {
+      width = e.pageX;
+    } else {
+      width = $(window).width() - e.pageX;
     }
-    // f = false;
+    el[0].style.width = width + "px";
+    el.attr("data-width", width);
   });
 
   window.addEventListener("mouseup", stopResize);
   function stopResize(e) {
-    f = false;
-    console.log("f ", f);
+    dragAndDrop = false;
   }
 
-  // $("left-sidebar").resizable();
+  const collBtn = document.querySelectorAll("footer .coll-btn");
+
+  [...collBtn].forEach((el) => el.addEventListener("click", closeSidebar));
+
+  function closeSidebar(e) {
+    const { parentEl, pos, width } = getParentInfo(
+      $(e.target).closest(".sidebar-content")
+    );
+    toggleSidebar(parentEl, pos, width, "remove");
+  }
 });
