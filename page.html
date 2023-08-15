@@ -17,15 +17,12 @@
 
 <body>
     <div class="wrapper">
-        <left-sidebar>
-            <div class="toggle-sidebar">
+
+
+        <menu-sidebar class="is-hidden">
+            <div class="close-menu">
                 <svg width="20" height="20">
-                    <use href="./images/icons.svg#icon-sync"></use>
-                </svg>
-            </div>
-            <div class="resize-sidebar" data-sidebar="left">
-                <svg width="20" height="20">
-                    <use href="./images/icons.svg#icon-sync"></use>
+                    <use href="./images/icons.svg#icon-close"></use>
                 </svg>
             </div>
             <div class="sidebar-content">
@@ -117,6 +114,64 @@
                             </ul>
                         </nav>
                     </aside>
+                </main>
+                <footer>
+
+                    <button type="button" class="outline tog-btn">
+                        <svg width="30" height="30">
+                            <use href="./images/icons.svg#icon-keyboard_arrow_down"></use>
+                        </svg>
+                    </button>
+                    <ul class="list">
+                        <li>Lorem ipsum dolor sit amet.</li>
+                        <li>Lorem ipsum dolor sit amet.</li>
+                        <li>Lorem ipsum dolor sit amet.</li>
+                        <li>Lorem ipsum dolor sit amet.</li>
+                    </ul>
+                </footer>
+            </div>
+        </menu-sidebar>
+
+
+        <left-sidebar>
+            <div class="close-menu">
+                <svg width="20" height="20">
+                    <use href="./images/icons.svg#icon-close"></use>
+                </svg>
+            </div>
+            <div class="toggle-sidebar">
+                <svg width="20" height="20">
+                    <use href="./images/icons.svg#icon-sync"></use>
+                </svg>
+            </div>
+            <div class="resize-sidebar" data-sidebar="left">
+                <svg width="20" height="20">
+                    <use href="./images/icons.svg#icon-sync"></use>
+                </svg>
+            </div>
+            <div class="sidebar-content">
+                <main>
+                    <input type="text">
+                    <div class="card">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente amet esse
+                        laborum ab distinctio. Fuga, id excepturi, amet repellendus rem ea sapiente hic voluptas
+                        optio
+                        eveniet aperiam quaerat officia quisquam.</div>
+                    <div class="card">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente amet esse
+                        laborum ab distinctio. Fuga, id excepturi, amet repellendus rem ea sapiente hic voluptas
+                        optio
+                        eveniet aperiam quaerat officia quisquam.</div>
+                    <div class="card">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente amet esse
+                        laborum ab distinctio. Fuga, id excepturi, amet repellendus rem ea sapiente hic voluptas
+                        optio
+                        eveniet aperiam quaerat officia quisquam.</div>
+                    <div class="card">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente amet esse
+                        laborum ab distinctio. Fuga, id excepturi, amet repellendus rem ea sapiente hic voluptas
+                        optio
+                        eveniet aperiam quaerat officia quisquam.</div>
+                    <div class="card">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente amet esse
+                        laborum ab distinctio. Fuga, id excepturi, amet repellendus rem ea sapiente hic voluptas
+                        optio
+                        eveniet aperiam quaerat officia quisquam.</div>
                 </main>
                 <footer>
                     <button type="button" class="outline coll-btn">
@@ -240,6 +295,15 @@
 
                                     </a>
                                 </li>
+                                <li>
+                                    <a href="#">
+                                        Link 3
+                                        <svg width="30" height="30">
+                                            <use href="./images/icons.svg#icon-close"></use>
+                                        </svg>
+
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -294,7 +358,7 @@
                             <p>Created 12 01 2023 14:54 | Updated 12 04 2023 14:54</p>
                         </div>
                         <div class="main-head-buttons">
-                            <button type="button" class="outline btn-el icon-menu">
+                            <button type="button" class="outline btn-el icon-left-sidebar">
                                 <svg width="30" height="30">
                                     <use href="./images/icons.svg#icon-menu"></use>
                                 </svg>
@@ -324,7 +388,7 @@
                             </div>
                             <button type="button" class="outline btn-el icon-menu-right">
                                 <svg width="30" height="30">
-                                    <use href="./images/icons.svg#icon-menu"></use>
+                                    <use href="./images/icons.svg#icon-filter"></use>
                                 </svg>
                             </button>
                         </div>
@@ -432,15 +496,19 @@
                             <div class="col-1-2">
                                 <h3>Lorem ipsum dolor sit amet.</h3>
                                 <input type="text">
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis blanditiis rerum
-                                    nemo. Iure animi architecto qui veniam non at explicabo nulla optio laudantium id.
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis blanditiis
+                                    rerum
+                                    nemo. Iure animi architecto qui veniam non at explicabo nulla optio laudantium
+                                    id.
                                     Placeat.</p>
                             </div>
                             <div class="col-1-2">
                                 <h3>Lorem ipsum dolor sit amet.</h3>
                                 <input type="text">
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis blanditiis rerum
-                                    nemo. Iure animi architecto qui veniam non at explicabo nulla optio laudantium id.
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis blanditiis
+                                    rerum
+                                    nemo. Iure animi architecto qui veniam non at explicabo nulla optio laudantium
+                                    id.
                                     Placeat.</p>
                             </div>
 
@@ -813,12 +881,14 @@
                 </main>
                 <box-filter>
                     <div class="card">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque sunt possimus laboriosam eaque
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque sunt possimus laboriosam
+                        eaque
                         quisquam modi ipsum repellendus officia est minus ducimus aliquid non aliquam quis, placeat
                         aspernatur tempora libero. Molestiae.
                     </div>
                     <div class="card">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque sunt possimus laboriosam eaque
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque sunt possimus laboriosam
+                        eaque
                         quisquam modi ipsum repellendus officia est minus ducimus aliquid non aliquam quis, placeat
                         aspernatur tempora libero. Molestiae.
                     </div>
@@ -835,6 +905,11 @@
         </div>
 
         <right-sidebar>
+            <div class="close-menu">
+                <svg width="20" height="20">
+                    <use href="./images/icons.svg#icon-close"></use>
+                </svg>
+            </div>
             <div class="toggle-sidebar">
                 <svg width="20" height="20">
                     <use href="./images/icons.svg#icon-sync"></use>
@@ -848,22 +923,28 @@
             <div class="sidebar-content">
                 <main>
                     <div class="card">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente amet esse
-                        laborum ab distinctio. Fuga, id excepturi, amet repellendus rem ea sapiente hic voluptas optio
+                        laborum ab distinctio. Fuga, id excepturi, amet repellendus rem ea sapiente hic voluptas
+                        optio
                         eveniet aperiam quaerat officia quisquam.</div>
                     <div class="card">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente amet esse
-                        laborum ab distinctio. Fuga, id excepturi, amet repellendus rem ea sapiente hic voluptas optio
+                        laborum ab distinctio. Fuga, id excepturi, amet repellendus rem ea sapiente hic voluptas
+                        optio
                         eveniet aperiam quaerat officia quisquam.</div>
                     <div class="card">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente amet esse
-                        laborum ab distinctio. Fuga, id excepturi, amet repellendus rem ea sapiente hic voluptas optio
+                        laborum ab distinctio. Fuga, id excepturi, amet repellendus rem ea sapiente hic voluptas
+                        optio
                         eveniet aperiam quaerat officia quisquam.</div>
                     <div class="card">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente amet esse
-                        laborum ab distinctio. Fuga, id excepturi, amet repellendus rem ea sapiente hic voluptas optio
+                        laborum ab distinctio. Fuga, id excepturi, amet repellendus rem ea sapiente hic voluptas
+                        optio
                         eveniet aperiam quaerat officia quisquam.</div>
                     <div class="card">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente amet esse
-                        laborum ab distinctio. Fuga, id excepturi, amet repellendus rem ea sapiente hic voluptas optio
+                        laborum ab distinctio. Fuga, id excepturi, amet repellendus rem ea sapiente hic voluptas
+                        optio
                         eveniet aperiam quaerat officia quisquam.</div>
                     <div class="card">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente amet esse
-                        laborum ab distinctio. Fuga, id excepturi, amet repellendus rem ea sapiente hic voluptas optio
+                        laborum ab distinctio. Fuga, id excepturi, amet repellendus rem ea sapiente hic voluptas
+                        optio
                         eveniet aperiam quaerat officia quisquam.</div>
                 </main>
                 <footer>
