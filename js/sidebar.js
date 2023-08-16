@@ -203,5 +203,24 @@ $(document).ready(function () {
   $(window).on("resize load", function () {
     calcWidthIndex = 0;
     calcWidth();
+    hideSidebars();
+  });
+
+  function hideSidebars() {
+    if ($(window).width() < 992) {
+      leftSidebar.removeClass("hover d-flex").removeAttr("style");
+      rightSidebar.removeClass("hover d-flex").removeAttr("style");
+    }
+  }
+
+  const hideLeftSidebar = $(".hide-left-sidebar");
+  const hideRightSidebar = $(".hide-right-sidebar");
+
+  hideLeftSidebar.on("change", () => {
+    leftSidebar.toggleClass("hide-element");
+  });
+
+  hideRightSidebar.on("change", () => {
+    rightSidebar.toggleClass("hide-element");
   });
 });

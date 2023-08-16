@@ -187,6 +187,17 @@ details[role="list"].show-top [role="listbox"] {
   height: var(--header-height);
 }
 
+.header > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-setting {
+  color: var(--primary);
+  cursor: pointer;
+}
+
 .main {
   overflow: hidden;
   flex-direction: column;
@@ -274,6 +285,7 @@ body h2 {
 
 .btn-list {
   display: flex;
+  margin-right: auto;
 }
 
 .btn-el {
@@ -361,6 +373,7 @@ nav[aria-label="breadcrumb"] ul li:not(:last-child) ::after {
   display: grid;
   grid-template-columns: repeat(3, minmax(300px, 1fr));
   height: 80vh;
+  width: calc(100vw - 30px);
   overflow-x: auto;
   gap: var(--half-spacing);
   padding: var(--half-spacing);
@@ -766,8 +779,8 @@ left-sidebar .coll-btn svg {
 
 search-block {
   z-index: 300;
-  width: 400px;
-  height: 100vh;
+  width: 100%;
+  max-height: 100vh;
   background: #fff;
   border: var(--border-width) solid var(--dropdown-border-color);
   padding: var(--half-spacing);
@@ -775,12 +788,16 @@ search-block {
   top: 0;
   right: -100%;
   display: grid;
-  grid-template-rows: auto auto minmax(200px 60%) auto;
+  grid-template-rows: 55px 240px calc(100vh - (55px + 284px + 110px)) 130px;
   transition: right 1s ease;
 }
 
 search-block.show {
   right: 0;
+}
+
+search-block main {
+  overflow-y: auto;
 }
 
 search-block,
@@ -790,9 +807,18 @@ search-block label {
   font-size: var(--main-font-size);
 }
 
-box-filter,
-space-between {
+search-block #f-search,
+search-block #select {
+  margin: 0;
+}
+
+search-block box-filter,
+search-block space-between {
   margin-bottom: var(--half-spacing);
+}
+
+search-block box-filter {
+  margin: 0;
 }
 
 space-between {
@@ -811,6 +837,11 @@ search-block button {
 
 search-block a {
   color: var(--primary);
+}
+
+search-block space-between {
+  margin-top: var(--half-spacing);
+  background: #fff;
 }
 
 box-filter {
@@ -1063,6 +1094,12 @@ box-article p {
   menu-sidebar.is-hidden {
     left: -300px;
   }
+  .btn-list {
+    margin-right: 0;
+  }
+  search-block {
+    width: 400px;
+  }
 }
 @media (min-width: 992px) {
   .wrapper {
@@ -1121,5 +1158,6 @@ box-article p {
   }
   .kanban {
     height: 100%;
+    width: 100%;
   }
 }
