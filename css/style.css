@@ -454,6 +454,10 @@ section h2 {
   text-align: center;
 }
 
+.table-box {
+  width: 100vw;
+}
+
 .table-box button {
   width: auto;
   padding: var(--extra-small-spacing) var(--small-spacing);
@@ -1064,6 +1068,7 @@ box-article p {
     top: calc(100% + 5px);
     right: 0;
     width: 300px;
+    height: auto;
   }
   .icon-left-sidebar {
     margin-right: 0;

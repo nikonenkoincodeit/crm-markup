@@ -17,10 +17,11 @@
 
 <body>
     <div class="wrapper">
-        <left-sidebar>
-            <div class="toggle-sidebar">
+
+        <menu-sidebar class="is-hidden">
+            <div class="close-menu">
                 <svg width="20" height="20">
-                    <use href="./images/icons.svg#icon-sync"></use>
+                    <use href="./images/icons.svg#icon-close"></use>
                 </svg>
             </div>
             <div class="sidebar-content">
@@ -104,6 +105,9 @@
                                             </svg>
                                             Link
                                         </span>
+                                        <svg width="30" height="30">
+                                            <use href="./images/icons.svg#icon-keyboard_arrow_left"></use>
+                                        </svg>
                                     </a>
                                 </li>
                             </ul>
@@ -111,25 +115,199 @@
                     </aside>
                 </main>
                 <footer>
-                    <div>
-                        <a href="#">link</a>
-                        <a href="#">link</a>
-                    </div>
+
+                    <button type="button" class="outline tog-btn">
+                        <svg width="30" height="30">
+                            <use href="./images/icons.svg#icon-keyboard_arrow_down"></use>
+                        </svg>
+                    </button>
+                    <ul class="list">
+                        <li>Lorem ipsum dolor sit amet.</li>
+                        <li>Lorem ipsum dolor sit amet.</li>
+                        <li>Lorem ipsum dolor sit amet.</li>
+                        <li>Lorem ipsum dolor sit amet.</li>
+                    </ul>
+                </footer>
+            </div>
+        </menu-sidebar>
+
+        <left-sidebar>
+            <div class="close-menu">
+                <svg width="20" height="20">
+                    <use href="./images/icons.svg#icon-close"></use>
+                </svg>
+            </div>
+            <div class="toggle-sidebar">
+                <svg width="20" height="20">
+                    <use href="./images/icons.svg#icon-sync"></use>
+                </svg>
+            </div>
+            <div class="resize-sidebar" data-sidebar="left">
+                <svg width="20" height="20">
+                    <use href="./images/icons.svg#icon-sync"></use>
+                </svg>
+            </div>
+            <div class="sidebar-content">
+                <main>
+                    <input type="text">
+                    <div class="card">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente amet esse
+                        laborum ab distinctio. Fuga, id excepturi, amet repellendus rem ea sapiente hic voluptas
+                        optio
+                        eveniet aperiam quaerat officia quisquam.</div>
+                    <div class="card">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente amet esse
+                        laborum ab distinctio. Fuga, id excepturi, amet repellendus rem ea sapiente hic voluptas
+                        optio
+                        eveniet aperiam quaerat officia quisquam.</div>
+                    <div class="card">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente amet esse
+                        laborum ab distinctio. Fuga, id excepturi, amet repellendus rem ea sapiente hic voluptas
+                        optio
+                        eveniet aperiam quaerat officia quisquam.</div>
+                    <div class="card">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente amet esse
+                        laborum ab distinctio. Fuga, id excepturi, amet repellendus rem ea sapiente hic voluptas
+                        optio
+                        eveniet aperiam quaerat officia quisquam.</div>
+                    <div class="card">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente amet esse
+                        laborum ab distinctio. Fuga, id excepturi, amet repellendus rem ea sapiente hic voluptas
+                        optio
+                        eveniet aperiam quaerat officia quisquam.</div>
+                </main>
+                <footer>
+                    <button type="button" class="outline coll-btn">
+                        collapse
+                        <svg width="40" height="40">
+                            <use href="./images/icons.svg#icon-arrow_left"></use>
+                        </svg>
+                    </button>
                 </footer>
             </div>
         </left-sidebar>
 
-        <div class="app max-height">
+        <div class="app">
+
+
             <div class="mob-header">
                 <div class="container-fluid">
-                    <div>
-                        <svg width="30" height="30">
+                    <div class="logo">
+                        <svg width="30" height="30" class="logo-icon">
                             <use href="./images/icons.svg#icon-menu"></use>
                         </svg>
                         <a href="#">
                             Logo
                         </a>
                     </div>
+                    <nav class="site-nav">
+                        <ul class="site-nav-list">
+                            <li>
+                                <a href="#">
+                                    <svg width="20" height="20">
+                                        <use href="./images/icons.svg#icon-close"></use>
+                                    </svg>
+                                    Link 1
+                                </a>
+                            </li>
+                            <li><a href="#">
+                                    <svg width="20" height="20">
+                                        <use href="./images/icons.svg#icon-close"></use>
+                                    </svg>
+                                    Link 2</a></li>
+                            <li><a href="#">
+                                    <svg width="20" height="20">
+                                        <use href="./images/icons.svg#icon-close"></use>
+                                    </svg>
+                                    Link 3</a></li>
+                            <li><a href="#">
+                                    <svg width="20" height="20">
+                                        <use href="./images/icons.svg#icon-close"></use>
+                                    </svg>
+                                    Link 4</a></li>
+                            <li><a href="#">
+                                    <svg width="20" height="20">
+                                        <use href="./images/icons.svg#icon-close"></use>
+                                    </svg>
+                                    Link 5</a></li>
+                            <li><a href="#">
+                                    <svg width="20" height="20">
+                                        <use href="./images/icons.svg#icon-close"></use>
+                                    </svg>
+                                    Link 6</a></li>
+                            <li><a href="#">
+                                    <svg width="20" height="20">
+                                        <use href="./images/icons.svg#icon-close"></use>
+                                    </svg>
+                                    Link 7</a></li>
+                            <li><a href="#">
+                                    <svg width="20" height="20">
+                                        <use href="./images/icons.svg#icon-close"></use>
+                                    </svg>
+                                    Link 8</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="toggle-nav">
+                        <div class="more hidden">
+                            lorem
+                            <ul class="hide-list"></ul>
+                        </div>
+                        <svg width="35" height="35" class="logo-icon">
+                            <use href="./images/icons.svg#icon-more_horiz"></use>
+                        </svg>
+
+                        <div class="site-nav-hide is-hidden">
+                            <div class="close-btn">
+                                <svg width="30" height="30">
+                                    <use href="./images/icons.svg#icon-close"></use>
+                                </svg>
+                            </div>
+                            <ul class="site-nav-list-hide">
+                                <li>
+                                    <a href="#">
+                                        <svg width="30" height="30" class="icon-drag">
+                                            <use href="./images/icons.svg#icon-drag_indicator"></use>
+                                        </svg>
+                                        Link 1
+                                        <svg width="30" height="30">
+                                            <use href="./images/icons.svg#icon-close"></use>
+                                        </svg>
+
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <svg width="30" height="30" class="icon-drag">
+                                            <use href="./images/icons.svg#icon-drag_indicator"></use>
+                                        </svg>
+                                        Link 2
+                                        <svg width="30" height="30">
+                                            <use href="./images/icons.svg#icon-close"></use>
+                                        </svg>
+
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <svg width="30" height="30" class="icon-drag">
+                                            <use href="./images/icons.svg#icon-drag_indicator"></use>
+                                        </svg>
+                                        Link 3
+                                        <svg width="30" height="30">
+                                            <use href="./images/icons.svg#icon-close"></use>
+                                        </svg>
+
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        Link 3
+                                        <svg width="30" height="30">
+                                            <use href="./images/icons.svg#icon-close"></use>
+                                        </svg>
+
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
                     <ul class="header-icon-list">
                         <li>
                             <svg width="30" height="30">
@@ -156,9 +334,11 @@
                                 <use href="./images/icons.svg#icon-search"></use>
                             </svg>
                         </li>
+
                     </ul>
                 </div>
             </div>
+
             <header class="header">
 
                 <div class="container-fluid">
@@ -193,13 +373,13 @@
                     </div>
                     <div class="filter-box ">
                         <div class="d-flex">
-                            <button type="button" class="outline btn-el icon-menu">
+                            <button type="button" class="outline btn-el icon-left-sidebar">
                                 <svg width="30" height="30">
                                     <use href="./images/icons.svg#icon-menu"></use>
                                 </svg>
                             </button>
                             <input type="search" id="search" name="search" class="search" placeholder="Search">
-                            <button type="button" class="outline btn-el">
+                            <button type="button" class="outline btn-el icon-menu-right">
                                 <svg width="30" height="30">
                                     <use href="./images/icons.svg#icon-filter"></use>
                                 </svg>
@@ -343,7 +523,17 @@
         </div>
 
         <right-sidebar>
+            <div class="close-menu">
+                <svg width="20" height="20">
+                    <use href="./images/icons.svg#icon-close"></use>
+                </svg>
+            </div>
             <div class="toggle-sidebar">
+                <svg width="20" height="20">
+                    <use href="./images/icons.svg#icon-sync"></use>
+                </svg>
+            </div>
+            <div class="resize-sidebar" data-sidebar="right">
                 <svg width="20" height="20">
                     <use href="./images/icons.svg#icon-sync"></use>
                 </svg>
@@ -351,29 +541,37 @@
             <div class="sidebar-content">
                 <main>
                     <div class="card">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente amet esse
-                        laborum ab distinctio. Fuga, id excepturi, amet repellendus rem ea sapiente hic voluptas optio
+                        laborum ab distinctio. Fuga, id excepturi, amet repellendus rem ea sapiente hic voluptas
+                        optio
                         eveniet aperiam quaerat officia quisquam.</div>
                     <div class="card">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente amet esse
-                        laborum ab distinctio. Fuga, id excepturi, amet repellendus rem ea sapiente hic voluptas optio
+                        laborum ab distinctio. Fuga, id excepturi, amet repellendus rem ea sapiente hic voluptas
+                        optio
                         eveniet aperiam quaerat officia quisquam.</div>
                     <div class="card">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente amet esse
-                        laborum ab distinctio. Fuga, id excepturi, amet repellendus rem ea sapiente hic voluptas optio
+                        laborum ab distinctio. Fuga, id excepturi, amet repellendus rem ea sapiente hic voluptas
+                        optio
                         eveniet aperiam quaerat officia quisquam.</div>
                     <div class="card">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente amet esse
-                        laborum ab distinctio. Fuga, id excepturi, amet repellendus rem ea sapiente hic voluptas optio
+                        laborum ab distinctio. Fuga, id excepturi, amet repellendus rem ea sapiente hic voluptas
+                        optio
                         eveniet aperiam quaerat officia quisquam.</div>
                     <div class="card">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente amet esse
-                        laborum ab distinctio. Fuga, id excepturi, amet repellendus rem ea sapiente hic voluptas optio
+                        laborum ab distinctio. Fuga, id excepturi, amet repellendus rem ea sapiente hic voluptas
+                        optio
                         eveniet aperiam quaerat officia quisquam.</div>
                     <div class="card">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente amet esse
-                        laborum ab distinctio. Fuga, id excepturi, amet repellendus rem ea sapiente hic voluptas optio
+                        laborum ab distinctio. Fuga, id excepturi, amet repellendus rem ea sapiente hic voluptas
+                        optio
                         eveniet aperiam quaerat officia quisquam.</div>
                 </main>
                 <footer>
-                    <div>
-                        <a href="#">link</a>
-                        <a href="#">link</a>
-                    </div>
+                    <button type="button" class="outline coll-btn">
+                        collapse
+                        <svg width="40" height="40">
+                            <use href="./images/icons.svg#icon-arrow_right"></use>
+                        </svg>
+                    </button>
                 </footer>
             </div>
         </right-sidebar>
@@ -381,6 +579,9 @@
     </div>
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"
         integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"
+        integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
+    <script src="./js/header-menu.js"></script>
     <script src="./js/main.js"></script>
     <script src="./js/sidebar.js"></script>
 </body>
