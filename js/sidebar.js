@@ -26,6 +26,13 @@ $(document).ready(function () {
     menu.toggleClass("show");
   });
 
+  menuSidebar.on("click", (e) => {
+    if (e.target.tagName === e.currentTarget.tagName) {
+      menuSidebar.removeClass("show");
+      addSidebarSetting("menu", "", false, false);
+    }
+  });
+
   $(".tog-btn").on("click", (e) => {
     $(e.target).toggleClass("show");
   });
@@ -196,6 +203,24 @@ $(document).ready(function () {
   closeSidebarRight.on("click", (e) => {
     const { parentEl, pos, width } = getParentInfo($(e.currentTarget));
     toggleSidebar(parentEl, pos, width, "remove");
+  });
+
+  leftSidebar.on("click", (e) => {
+    if (e.target.tagName === e.currentTarget.tagName) {
+      const { parentEl, pos, width } = getParentInfo(
+        $(e.target).find(".sidebar-content")
+      );
+      toggleSidebar(parentEl, pos, width, "remove");
+    }
+  });
+
+  rightSidebar.on("click", (e) => {
+    if (e.target.tagName === e.currentTarget.tagName) {
+      const { parentEl, pos, width } = getParentInfo(
+        $(e.target).find(".sidebar-content")
+      );
+      toggleSidebar(parentEl, pos, width, "remove");
+    }
   });
 
   function calcWidth() {
