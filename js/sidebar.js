@@ -1,6 +1,24 @@
 $(document).ready(function () {
   const menuSidebarLink = $("menu-sidebar a");
   const menuSidebar = $("menu-sidebar");
+  let calcWidthIndex = 0;
+  const sidebarSettings = {
+    left: {
+      class: "",
+      show: false,
+      toggle: false,
+    },
+    right: {
+      class: "",
+      show: false,
+      toggle: false,
+    },
+    menu: {
+      class: "",
+      show: false,
+      toggle: false,
+    },
+  };
 
   menuSidebarLink.on("click", (e) => {
     const menu = $(e.target).closest(".item").find(".nested-menu");
@@ -13,33 +31,37 @@ $(document).ready(function () {
   });
 
   $("menu-sidebar .close-menu").on("click", (e) => {
-    menuSidebar.addClass("is-hidden");
+    menuSidebar.removeClass("show");
+    addSidebarSetting("menu", "", false, false);
   });
 
   $(".logo").on("click mouseover", (e) => {
-    menuSidebar.removeClass("is-hidden");
+    menuSidebar.addClass("show");
+    addSidebarSetting("menu", "show", true, false);
   });
 
   const leftSidebar = $("left-sidebar");
   const rightSidebar = $("right-sidebar");
-  let calcWidthIndex = 0;
 
   const app = $(".app");
 
   const btnToggle = $(".toggle-sidebar");
 
+  const screenWidthIsLarger = (value) => $(window).width() > value;
+
   const getParentInfo = (el) => {
     const parentEl = el.parent();
     const pos = parentEl[0].tagName.toLowerCase().split("-")[0];
-    const wEl = $(window).width() > 992 ? 300 : 400;
+    const wEl = screenWidthIsLarger(992) ? 300 : 400;
     const width = parentEl.attr("data-width") || wEl;
     return { parentEl, pos, width };
   };
 
   function toggleSidebar(parentEl, pos, width, method = "toggle") {
-    const toggle = $(window).width() > 992;
-    const classEl = $(window).width() > 992 ? "show" : "hover";
+    const toggle = screenWidthIsLarger(992);
+    const classEl = toggle ? "show" : "hover";
     const bool = parentEl[0].classList[method](classEl);
+    updateSidebarSettings(pos, method, bool, classEl);
 
     if (toggle) {
       const offset = bool ? 0 : "-" + (width - 30) + "px";
@@ -56,6 +78,20 @@ $(document).ready(function () {
       }
       index += 1;
     }, 100);
+  }
+
+  function updateSidebarSettings(pos, method, bool, classEl) {
+    if (method === "remove" || !bool) {
+      addSidebarSetting(pos, "", false, false);
+    } else {
+      addSidebarSetting(pos, classEl, true, false);
+    }
+  }
+
+  function addSidebarSetting(pos, cla, show, toggle) {
+    sidebarSettings[pos].class = cla;
+    sidebarSettings[pos].show = show;
+    sidebarSettings[pos].toggle = toggle;
   }
 
   btnToggle.on("click", function () {
@@ -98,24 +134,15 @@ $(document).ready(function () {
         const { parentEl, pos, width } = getParentInfo($(this));
         if (parentEl.hasClass("show")) return;
         parentEl.removeClass("hover");
-        console.log("width ", width);
         parentEl.css("margin-" + pos, "-" + (width - 30) + "px");
+
         idTimeout = setTimeout(function () {
           parentEl.removeClass("p-fixed");
-
           app.css("margin-" + pos, 0);
         }, 1000);
       }
     );
   }
-  // const footerBtn = $(".footer-btn");
-  // const conFluid = $(".container-fluid");
-
-  // footerBtn.on("click", () => {
-  //   rightSidebar.toggleClass("hide-element");
-  //   leftSidebar.toggleClass("hide-element");
-  //   conFluid.toggleClass("fluid");
-  // });
 
   const resizeSidebar = $(".resize-sidebar");
 
@@ -222,5 +249,22 @@ $(document).ready(function () {
 
   hideRightSidebar.on("change", () => {
     rightSidebar.toggleClass("hide-element");
+  });
+
+  const elements = ["left", "right", "menu"];
+
+  $(".btn-setting").on("click", () => {
+    elements.forEach((key) => {
+      if (sidebarSettings[key].show) {
+        const sidebar = $(key + "-sidebar");
+        const { class: classEl, toggle } = sidebarSettings[key];
+        sidebar[0].classList.toggle(classEl, toggle);
+        if (classEl === "show") {
+          const val = toggle ? 0 : sidebar.width() - 30;
+          sidebar.css("margin-" + key, "-" + val + "px");
+        }
+        sidebarSettings[key].toggle = !sidebarSettings[key].toggle;
+      }
+    });
   });
 });
