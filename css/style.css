@@ -1079,6 +1079,9 @@ box-article p {
   .app {
     grid-template-rows: 50px 80px calc(100% - 200px) 120px;
   }
+  .app.page {
+    grid-template-rows: 50px 80px calc(100% - 120px);
+  }
   .filter-box {
     flex-wrap: nowrap;
   }
@@ -1205,9 +1208,6 @@ box-article p {
   .nav-page ul li:nth-child(2) {
     display: block;
   }
-}
-
-@media (min-width: 992px) {
   .app {
     height: 100vh;
     display: grid;
@@ -1220,6 +1220,11 @@ box-article p {
           )
       )
       var(--main-footer-height);
+  }
+  .app.page {
+    grid-template-rows: var(--mob-header-height) var(--header-height) calc(
+        100% - (var(--mob-header-height) + var(--header-height))
+      );
   }
   .kanban {
     height: 100%;
