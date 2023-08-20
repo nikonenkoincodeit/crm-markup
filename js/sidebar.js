@@ -56,18 +56,17 @@ $(document).ready(function () {
 
   const screenWidthIsLarger = (value) => $(window).width() > value;
 
-  const getParentInfo = (el) => {
-    const parentEl = el.parent();
+  const getParentInfo = (parentEl) => {
+    // const parentEl = el.parent();
     const pos = parentEl[0].tagName.toLowerCase().split("-")[0];
     const wEl = screenWidthIsLarger(992) ? 300 : 400;
     const width = parentEl.attr("data-width") || wEl;
     return { parentEl, pos, width };
   };
 
-  function toggleSidebar(parentEl, pos, width, method = "toggle") {
+  function toggleSidebar(parentEl, pos, width, method = "toggle", classEL) {
     console.log(parentEl, pos, width, method);
     const toggle = screenWidthIsLarger(992);
-    const classEl = toggle ? "show" : "hover";
     const bool = parentEl[0].classList[method](classEl);
     updateSidebarSettings(pos, method, bool, classEl);
     // if (method === "remove") parentEl[0].classList.remove("show hover");
@@ -103,14 +102,25 @@ $(document).ready(function () {
   }
 
   btnToggle.on("click", function () {
-    const { parentEl, pos, width } = getParentInfo($(this));
-    toggleSidebar(parentEl, pos, width);
+    const parentEl = $(this).parent();
+    const { pos, width } = getParentInfo($(this).parent());
+    const method = parentEl.hasClass("show") ? "remove" : "add";
+    console.log(method);
+    _toggleSidebar(parentEl, pos, width, method, "show");
   });
+
+  function _toggleSidebar(parentEl, pos, width, method, _class) {
+    parentEl[0].classList[method](_class);
+    const offset = method === "add" ? 0 : "-" + (width - 30) + "px";
+    parentEl.css("margin-" + pos, offset);
+    // updateSidebarSettings(pos, method, bool,_class);
+  }
 
   const btnSidebarRight = $(".icon-menu-right");
   const btnSidebarLeft = $(".icon-left-sidebar");
 
   btnSidebarRight.on("click", function () {
+    console.log(123);
     const { parentEl, pos, width } = getParentInfo(
       $("right-sidebar .toggle-sidebar")
     );
@@ -118,6 +128,7 @@ $(document).ready(function () {
   });
 
   btnSidebarLeft.on("click", function () {
+    console.log(123456);
     const { parentEl, pos, width } = getParentInfo(
       $("left-sidebar .toggle-sidebar")
     );
@@ -198,33 +209,35 @@ $(document).ready(function () {
   const closeSidebarLeft = $("left-sidebar .close-menu");
   const closeSidebarRight = $("right-sidebar .close-menu");
 
-  closeSidebarLeft.on("click", (e) => {
-    const { parentEl, pos, width } = getParentInfo($(e.currentTarget));
-    toggleSidebar(parentEl, pos, width, "remove");
-  });
+  // closeSidebarLeft.on("click", (e) => {
+  //   console.log(5555);
+  //   const { parentEl, pos, width } = getParentInfo($(e.currentTarget));
+  //   toggleSidebar(parentEl, pos, width, "remove");
+  // });
 
-  closeSidebarRight.on("click", (e) => {
-    const { parentEl, pos, width } = getParentInfo($(e.currentTarget));
-    toggleSidebar(parentEl, pos, width, "remove");
-  });
+  // closeSidebarRight.on("click", (e) => {
+  //   console.log(999);
+  //   const { parentEl, pos, width } = getParentInfo($(e.currentTarget));
+  //   toggleSidebar(parentEl, pos, width, "remove");
+  // });
 
-  leftSidebar.on("click", (e) => {
-    if (e.target.tagName === e.currentTarget.tagName) {
-      const { parentEl, pos, width } = getParentInfo(
-        $(e.target).find(".sidebar-content")
-      );
-      toggleSidebar(parentEl, pos, width, "remove");
-    }
-  });
+  // leftSidebar.on("click", (e) => {
+  //   if (e.target.tagName === e.currentTarget.tagName) {
+  //     const { parentEl, pos, width } = getParentInfo(
+  //       $(e.target).find(".sidebar-content")
+  //     );
+  //     toggleSidebar(parentEl, pos, width, "remove");
+  //   }
+  // });
 
-  rightSidebar.on("click", (e) => {
-    if (e.target.tagName === e.currentTarget.tagName) {
-      const { parentEl, pos, width } = getParentInfo(
-        $(e.target).find(".sidebar-content")
-      );
-      toggleSidebar(parentEl, pos, width, "remove");
-    }
-  });
+  // rightSidebar.on("click", (e) => {
+  //   if (e.target.tagName === e.currentTarget.tagName) {
+  //     const { parentEl, pos, width } = getParentInfo(
+  //       $(e.target).find(".sidebar-content")
+  //     );
+  //     toggleSidebar(parentEl, pos, width, "remove");
+  //   }
+  // });
 
   function calcWidth() {
     if ($(window).width() <= 576) return;

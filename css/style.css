@@ -561,19 +561,13 @@ menu-sidebar.show {
   left: 0;
 }
 
-left-sidebar.show {
-  margin-left: 0;
-}
-
-right-sidebar.show {
-  margin-right: 0;
-}
-
+left-sidebar.show,
 left-sidebar.hover {
   margin-left: -1px;
   left: 0;
 }
 
+right-sidebar.show,
 right-sidebar.hover {
   margin-right: -1px;
 }
@@ -1233,16 +1227,11 @@ box-article p {
     height: 100%;
     width: 100%;
   }
-}
+  left-sidebar.show {
+    margin-left: 0;
+  }
 
-[style="grid-template-columns: repeat(1, 1fr);"] {
-  /* width: calc(100% + 60px); */
-  /* width: fit-content; */
-}
-
-[style="grid-template-columns: repeat(1, 100%);"] .card {
-  /* margin: 0 30px; */
-  /* width: calc(100% + 30px); */
-  /* width: 100%;
-  padding: 15px; */
+  right-sidebar.show {
+    margin-right: 0;
+  }
 }
