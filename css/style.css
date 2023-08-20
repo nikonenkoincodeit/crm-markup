@@ -1032,6 +1032,9 @@ box-article p {
   margin-right: auto;
 }
 
+.full-width-block {
+  width: 100vw;
+}
 @media (min-width: 576px) {
   .gallery {
     grid-template-columns: repeat(2, 1fr);
@@ -1230,4 +1233,16 @@ box-article p {
     height: 100%;
     width: 100%;
   }
+}
+
+[style="grid-template-columns: repeat(1, 1fr);"] {
+  /* width: calc(100% + 60px); */
+  /* width: fit-content; */
+}
+
+[style="grid-template-columns: repeat(1, 100%);"] .card {
+  /* margin: 0 30px; */
+  /* width: calc(100% + 30px); */
+  /* width: 100%;
+  padding: 15px; */
 }

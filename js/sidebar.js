@@ -65,11 +65,12 @@ $(document).ready(function () {
   };
 
   function toggleSidebar(parentEl, pos, width, method = "toggle") {
+    console.log(parentEl, pos, width, method);
     const toggle = screenWidthIsLarger(992);
     const classEl = toggle ? "show" : "hover";
     const bool = parentEl[0].classList[method](classEl);
     updateSidebarSettings(pos, method, bool, classEl);
-
+    // if (method === "remove") parentEl[0].classList.remove("show hover");
     if (toggle) {
       const offset = bool ? 0 : "-" + (width - 30) + "px";
       parentEl.css("margin-" + pos, offset);
@@ -186,9 +187,11 @@ $(document).ready(function () {
   [...collBtn].forEach((el) => el.addEventListener("click", closeSidebar));
 
   function closeSidebar(e) {
+    console.log($(e.target).closest(".sidebar-content"));
     const { parentEl, pos, width } = getParentInfo(
       $(e.target).closest(".sidebar-content")
     );
+    console.log(parentEl, pos, width);
     toggleSidebar(parentEl, pos, width, "remove");
   }
 
