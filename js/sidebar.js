@@ -92,8 +92,14 @@ $(document).ready(function () {
   }
 
   function moveElement(parentEl, method, pos, width) {
-    const w = screenWidthIsLarger(992) ? width - 30 : width;
-    let offset = method === "add" ? 0 : "-" + w + "px";
+    let w = "100%";
+    if (screenWidthIsLarger(992)) {
+      w = width - 30 + "px";
+    } else if (screenWidthIsLarger(576)) {
+      w = 400 + "px";
+    }
+
+    let offset = method === "add" ? 0 : "-" + w;
     parentEl.css("margin-" + pos, offset);
   }
 
@@ -262,6 +268,9 @@ $(document).ready(function () {
     if ($(window).width() < 992) {
       leftSidebar.removeClass("hover d-flex").removeAttr("style");
       rightSidebar.removeClass("hover d-flex").removeAttr("style");
+    } else {
+      leftSidebar.removeAttr("style").removeAttr("data-width");
+      rightSidebar.removeAttr("style").removeAttr("data-width");
     }
   }
 
